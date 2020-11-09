@@ -24,9 +24,13 @@ const userRoutes = require('./routes/user')
 app.use(morgan( 'dev'))
 app.use(bodyParser.json())
 // app.use(cors()) //Allow all origins. But you may want to restrict
-if( process.env.NODE_ENV = "development" )
+if( process.env.NODE_ENV === "development" )    
     app.use( cors( {origin: `http://localhost:3000` } ) )
- 
+if( process.env.NODE_ENV === "production" ){
+    app.use( cors() )
+    app.use(express.static('../client/build'))
+}
+
 // Middleware
 app.use( "/api", authRoutes )
 app.use( "/api", userRoutes )
