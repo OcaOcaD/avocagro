@@ -35,6 +35,10 @@ if( process.env.NODE_ENV === "production" ){
 app.use( "/api", authRoutes )
 app.use( "/api", userRoutes )
 const port = process.env.port || 8000
-app.listen( port, ()=>{
-    console.log( `App runnign on port ${port} - ${process.env.NODE_ENV}` )
+// app.listen( port, ()=>{
+//     console.log( `App runnign on port ${port} - ${process.env.NODE_ENV}` )
+// })
+app.listen(process.env.PORT || 8000, function (err) {
+    if (err) throw err
+    console.log(`server listening on ${fastify.server.address().port}`)
 })
