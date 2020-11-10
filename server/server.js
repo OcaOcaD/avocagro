@@ -40,5 +40,5 @@ const port = process.env.port || 8000
 // })
 app.listen(process.env.PORT || 8000, function (err) {
     if (err) throw err
-    console.log(`server listening on ${fastify.server.address().port}`)
+    console.log(`server listening on ${process.env.PORT}`)
 })
