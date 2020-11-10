@@ -10,6 +10,8 @@ import AdminRoute from '../auth/AdminRoute'
 import Forgot from '../auth/Forgot'
 import Reset from '../auth/Reset'
 import Activate from '../auth/Activate'
+// Calcultor
+import Calculator from '../Avocagro/Calculator/Calculator'
 
 const Routes = () => {
     return(
@@ -23,6 +25,8 @@ const Routes = () => {
                 <Route path="/auth/activate/:token" exact component={Activate} />
                 <Route path="/auth/password/forgot" exact component={Forgot} />
                 <Route path="/auth/password/reset/:token" exact component={Reset} />
+                //Avocagro
+                <Route path="/calculator" exact component={Calculator} />
             </Switch>
         </BrowserRouter>
     )
