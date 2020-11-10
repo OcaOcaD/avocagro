@@ -9,15 +9,15 @@ require('dotenv').config();
 class SigninForm extends React.Component {
     constructor(props) {
         super(props);
-        const { history } = this.props;
         this.state = {
-            email: 'alokacstu@gmail.com',
-            password: 'oca123',
+            email: 'luisdonaldogarciacastro@gmail.com',
+            password: 'admin123',
             btnTxt: 'Submit'
         };
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.informParent = this.informParent.bind(this)
+        console.log("prooooops:", this.props)
     }
   
     handleChange = input =>  event => {
@@ -29,7 +29,7 @@ class SigninForm extends React.Component {
         console.log("satte", this.state)
         console.log("historyyy", this.history)
         authenticate( response, () => {
-            ( isAuth() && isAuth().role === 'admin' ) ? this.history.pushState('admin') : this.history.pushState('/')
+            ( isAuth() && isAuth().role === 'admin' ) ? this.props.history.push('admin') : this.props.history.push('/')
         } )
     }
   
@@ -39,31 +39,38 @@ class SigninForm extends React.Component {
         this.setState({ ...this.state, "btnTxt":"Submitting" })
         let email = this.state.email
         let password = this.state.password
-        axios({
-            method: 'POST',
-            url: `${process.env.REACT_APP_API}/signin`,
-            data: { email, password }   
-        })
+        let url = ( process.env.REACT_APP_NODE_ENV === "development" ) ? process.env.REACT_APP_LOCAL_API: process.env.REACT_APP_API
+        url += "/signin"
+        let config = {
+            validateStatus: function (status) {
+              return status < 500; // Resolve only if the status code is less than 500
+            },
+            url: url,
+            data: { email, password },
+            method: "post",
+        };
+        console.log("requesting to signin api:", url)
+        axios(config)
             .then( response => {
-                console.log("SIGN IN SUCCESS:", response)
-                // save the response ( user, token ) in localStorage / cookie
-                authenticate( response, () => {
-                    this.setState({ ...this.state, name: '', email: '', password: '', btnTxt: 'Submit' })
-                    toast.success(`Hey ${response.data.user.name}, Welcome back!`);
-                } )
-                if( this.history ){
-                    console.log("history:", this.historyhistory,"???")
-                }else{
-                    console.log("no hsitory")
+                console.log("API did say something:", response)
+                if( response.status === 401 ){
+                    toast.error(response.data.error)
                 }
-                ( isAuth() && isAuth().role === 'admin' ) ? this.history.pushState('admin') : this.history.pushState('/')
+                if( response.status === 200 ){
+                    // console.log("go to:", this.props)
+                    authenticate( response, () => {
+                        ( isAuth() && isAuth().role === 'admin' ) ? this.props.history.push('admin') : this.props.history.push('/')
+                    } )
+                    ( isAuth() && isAuth().role === 'admin' ) ? this.props.history.push('admin') : this.props.history.push('/')
+                
+                }
             } )
-            .catch( err => {
-                console.log("ERROR ON POST:", err)
+            .catch( response => {
+                console.log("ERROR ON POST say something:", response)
                 // console.log("Response:", err.response.data)
                 this.setState({ ...this.state, btnTxt: 'Submit' })
-                // toast.error(err.data.error)
-                toast.error(err)
+                // // toast.error(err.data.error)
+                // toast.error(err.error)
             } )
     }
     render() {
@@ -77,7 +84,7 @@ class SigninForm extends React.Component {
                 <GoogleLogInBtn history={history} informParent={this.informParent}/>
                 
                 <form onSubmit={this.handleSubmit}>
-                    {isAuth() ? <Redirect to="/" /> : null} 
+                    {isAuth() ? <Redirect to="/" /> : console.log("nel")} 
                     <div className="form-group">
                         <label className="">Email</label>
                         <input className="form-control"

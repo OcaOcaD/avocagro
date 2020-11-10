@@ -41,6 +41,7 @@ exports.signup = ( req, res ) => {
             return res.status(400).json({error: "Email is taken."})
         }
         const token = jwt.sign({ name, email, password }, process.env.JWT_ACCOUNT_ACTIVATION, {expiresIn: '20m'})
+        let url = ( process.env.NODE_ENV === "development" ) ? process.env.CLIENT_LOCAL_URL: process.env.CLIENT_URL
         //Now we sent to the users email
         const emailData = {
             from: process.env.EMAIL_FROM,

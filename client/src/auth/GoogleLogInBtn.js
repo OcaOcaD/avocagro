@@ -7,9 +7,10 @@ const GoogleLoginBtn = ( {history, informParent = f => f } ) => {
     
     const responseGoogle = (response) => {
       console.log(response);
+      let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
       axios({
           method: 'POST',
-          url: `${process.env.REACT_APP_API}/google-login`,
+          url: `${base_url}/google-login`,
           data: {idToken: response.tokenId}
       })
         .then( response => {

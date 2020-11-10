@@ -4,9 +4,11 @@ import Layout from './Layout';
 const App = () => {
   
   return (
-    <Layout className="App">
-        Nothing here
-    </Layout>
+    <>
+        <Layout className="App" />
+        Nothing here yet
+    </>
+    
   );
 }
 

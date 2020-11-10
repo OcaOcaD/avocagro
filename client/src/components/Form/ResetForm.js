@@ -31,9 +31,10 @@ class ResetForm extends React.Component {
         let email = this.state.email
         let password = this.state.password
         console.log("Sending reset request")
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
         axios({
             method: 'PUT',
-            url: `${process.env.REACT_APP_API}/Reset-password`,
+            url: `${base_url}/Reset-password`,
             data: { email }   
         })
             .then( response => {

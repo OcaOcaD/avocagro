@@ -36,9 +36,10 @@ const Activate = ({ match }) => {
     const clickSubmit = event => {
         event.preventDefault();
         console.log("token in about axios:", token)
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
         axios({
             method: 'POST',
-            url: `${process.env.REACT_APP_API}/account-activation`,
+            url: `${base_url}/account-activation`,
             data: {"token": values.token}
         })
             .then(response => {
@@ -54,11 +55,6 @@ const Activate = ({ match }) => {
 
     const activationLink = () => (
         <div className="text-center">
-            <p>f</p>
-            <p>f</p>
-            <p>f</p>
-            <p>f</p>
-            <p>f</p>
             {JSON.stringify(token)}
             <h1 className="p-5">Hey {name}, Ready to activate your account?</h1>
             <button className="btn btn-outline-primary" onClick={clickSubmit}>
@@ -68,13 +64,18 @@ const Activate = ({ match }) => {
     );
 
     return (
-        <Layout>
+        <>
+            <Layout />
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
                 {activationLink()}
             </div>
-        </Layout>
+        </>
+        
     );
+    return (
+        <h1>TEST</h1>
+    )
 };
 
 export default Activate;

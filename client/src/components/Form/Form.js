@@ -11,7 +11,7 @@ class NameForm extends React.Component {
         this.state = {
             name: 'Donaldo 2',
             email: 'luisdonaldogarciacastro@gmail.com',
-            password: 'oca123',
+            password: 'admin123',
             btnTxt: 'Submit'
         };
 
@@ -31,9 +31,11 @@ class NameForm extends React.Component {
         let name = this.state.name
         let email = this.state.email
         let password = this.state.password
+        // url 
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
         axios({
             method: 'POST',
-            url: `${process.env.REACT_APP_API}/signup`,
+            url: `${base_url}/signup`,
             data: { name, email, password }
             
         })
@@ -41,7 +43,7 @@ class NameForm extends React.Component {
                 console.log("SIGNUP SUCCESS:", response)
                 this.setState({ ...this.state, name: '', email: '', password: '', btnTxt: 'Submit' })
                 console.log("response:", response)
-                toast.success(response)
+                toast.success(response.data.message)
             } )
             .catch( err => {
                 console.log("Response:", err.response.data)

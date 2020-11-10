@@ -32,9 +32,10 @@ class UpdateForm extends React.Component {
     loadProfile = () =>{
         console.log("user_id:", isAuth()._id)
         console.log("Token", this.token)
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
         axios({
             method: 'GET',
-            url: `${process.env.REACT_APP_API}/user/${isAuth()._id}`,
+            url: `${base_url}/user/${isAuth()._id}`,
             headers: {
                 Authorization: `Bearer ${this.token}`
             }
@@ -72,9 +73,10 @@ class UpdateForm extends React.Component {
         let email = this.state.email
         let password = this.state.password
         // Update the profile
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
         axios({
             method: 'PUT',
-            url: `${process.env.REACT_APP_API}/user/update/${isAuth()._id}`,
+            url: `${base_url}/user/update/${isAuth()._id}`,
             data:{name, password},
             headers: {
                 Authorization: `Bearer ${this.token}`

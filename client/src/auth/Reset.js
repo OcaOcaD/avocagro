@@ -32,9 +32,10 @@ const Reset = ({ match }) => {
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, buttonText: 'Submitting' });
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
         axios({
             method: 'PUT',
-            url: `${process.env.REACT_APP_API}/reset-password`,
+            url: `${base_url}/reset-password`,
             data: { newPassword, resetPasswordLink: token }
         })
             .then(response => {
@@ -72,13 +73,14 @@ const Reset = ({ match }) => {
     );
 
     return (
-        <Layout>
+        <>
+            <Layout />
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
                 <h1 className="p-5 text-center">Hey {name}, Type your new password</h1>
                 {passwordResetForm()}
             </div>
-        </Layout>
+        </>
     );
 };
 

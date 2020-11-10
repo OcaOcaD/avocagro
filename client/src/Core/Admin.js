@@ -22,13 +22,18 @@ const Admin = ({ history }) => {
     }, []);
 
     const loadProfile = () => {
-        axios({
-            method: 'GET',
-            url: `${process.env.REACT_APP_API}/user/${isAuth()._id}`,
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
+        let config = {
+            validateStatus: function (status) {
+              return status < 500; // Resolve only if the status code is less than 500
+            },
+            url: `${base_url}/user/${isAuth()._id}`,
+            method: "get",
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        })
+        };
+        axios(config)
             .then(response => {
                 console.log('PRIVATE PROFILE UPDATE', response);
                 const { role, name, email } = response.data;
@@ -54,9 +59,10 @@ const Admin = ({ history }) => {
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, buttonText: 'Submitting' });
+        let base_url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_LOCAL_API : process.env.REACT_APP_API
         axios({
             method: 'PUT',
-            url: `${process.env.REACT_APP_API}/admin/update`,
+            url: `${base_url}/admin/update`,
             headers: {
                 Authorization: `Bearer ${token}`
             },
