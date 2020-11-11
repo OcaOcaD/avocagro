@@ -4,7 +4,7 @@ Importante para entrega segunda fase de avovhallenge
   https://drive.google.com/drive/folders/1PPWrVstJGSevLKVXszG6Lfur9_IhfVK8?usp=sharing
 
 La carpeta de drive contiene:
-- Vídeo presentación.
+- Vídeo presentación. https://youtu.be/IWGGeneAcLk
 - Documentación del proyecto
 - Avance del Mockup de la aplicación
 - Costos de desarrollo del proyecto
