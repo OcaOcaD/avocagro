@@ -1,5 +1,5 @@
 # avocagro
-Importante para entrega segunda fase de avo hallenge
+Importante para entrega segunda fase de Avo Challenge
 
   https://drive.google.com/drive/folders/1PPWrVstJGSevLKVXszG6Lfur9_IhfVK8?usp=sharing
 
