@@ -32,7 +32,7 @@ const Routes = () => {
                 <Route path="/calculator" exact component={Calculator} />
                 //Map test
                 <Route path="/map" exact component={UgasMap} />
-                <Route path="/demo" exact component={UgasMap} />
+                <Route path="/demo" component={UgasMap} />
             </Switch>
         </BrowserRouter>
     )
