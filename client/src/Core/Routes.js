@@ -19,7 +19,7 @@ const Routes = () => {
     return(
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={App} />
+                <Route path="/" exact component={UgasMap} />
                 <Route path="/signup" exact component={Signup} />
                 <Route path="/signin" exact component={Signin} />
                 <PrivateRoute path="/private" exact component={Private} />

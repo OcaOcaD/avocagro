@@ -11,7 +11,7 @@ const Signin = ( history ) => {
             <Layout />
             <div className="container col-md-6 text-center">
                 <h1>Sign in</h1>
-
+                <p>Test</p>
                 <h3>Or sign up with us</h3>
                 <SigninForm > 
                     {JSON.stringify(history)}
