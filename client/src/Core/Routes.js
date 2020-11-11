@@ -12,6 +12,8 @@ import Reset from '../auth/Reset'
 import Activate from '../auth/Activate'
 // Calcultor
 import Calculator from '../Avocagro/Calculator/Calculator'
+import UgasMap from '../Avocagro/UgasMap/UgasMap'
+import NewSpace from '../Avocagro/NewSpace/NewSpace'
 
 const Routes = () => {
     return(
@@ -26,7 +28,11 @@ const Routes = () => {
                 <Route path="/auth/password/forgot" exact component={Forgot} />
                 <Route path="/auth/password/reset/:token" exact component={Reset} />
                 //Avocagro
+                <Route path="/newSpace" exact component={NewSpace} />
                 <Route path="/calculator" exact component={Calculator} />
+                //Map test
+                <Route path="/map" exact component={UgasMap} />
+                <Route path="/demo" exact component={UgasMap} />
             </Switch>
         </BrowserRouter>
     )
