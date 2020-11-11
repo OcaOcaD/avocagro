@@ -14,6 +14,7 @@ import Activate from '../auth/Activate'
 import Calculator from '../Avocagro/Calculator/Calculator'
 import UgasMap from '../Avocagro/UgasMap/UgasMap'
 import NewSpace from '../Avocagro/NewSpace/NewSpace'
+import Land from '../Avocagro/Land/Land'
 
 const Routes = () => {
     return(
@@ -33,6 +34,7 @@ const Routes = () => {
                 //Map test
                 <Route path="/map" exact component={UgasMap} />
                 <Route path="/demo" component={UgasMap} />
+                <Route path="/land" component={Land} />
             </Switch>
         </BrowserRouter>
     )
