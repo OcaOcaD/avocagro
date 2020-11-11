@@ -1,3 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'typo';
+}
+
+h1 {
+  font-family: "typo", typo, Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+
+h3 {
+  font-family: "typo", typo, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+
+p {
+  font-family: "typo", typo, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+blockquote {
+  font-family: "typo", typo, Arial, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+pre {
+  font-family: "typo", typo, Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+}
+
+@font-face {
+  font-family: typo;
+  src: url("../../fonts/Typo_Round_Regular_Demo.otf") format("opentype");
+}
+
+@font-face {
+  font-family: typo;
+  font-weight: bold;
+  src: url("../../fonts/Typo_Round_Bold_Demo.otf") format("opentype");
+}
+
 .landDetail {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -35,17 +97,20 @@
 }
 
 .landContainer h1 {
+  width: 95%;
   margin: 0;
   color: #8ACC2D;
   font-weight: bold;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  padding: 1em 1em 0 1em;
+  padding: 1em 0;
   font-size: clamp(30px, 40px, 42px);
+  line-height: 1em;
 }
 
 .landContainer .uga_text {
   font-size: clamp(30px, 40px, 42px);
+  line-height: 1em;
   color: white;
   text-decoration: underline;
 }
@@ -56,6 +121,14 @@
   width: 100%;
   height: 500px;
   max-height: 40vh;
+}
+
+.landContainer h2 {
+  font-size: clamp(15px, 17px, 19px);
+  line-height: 1em;
+  color: #CF4D7D;
+  padding: 1em 0;
+  width: 90%;
 }
 
 .landContainer .infoGroup {
@@ -69,14 +142,20 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 95%;
+  width: 90%;
 }
 
 .landContainer .infoGroup h3 {
-  -ms-flex-item-align: left;
-      -ms-grid-row-align: left;
-      align-self: left;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   font-size: clamp(13px, 14px, 16px);
+  line-height: 1em;
   color: #8ACC2D;
+}
+
+.landContainer .infoGroup p {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: white;
 }
 /*# sourceMappingURL=LandDetail.css.map */

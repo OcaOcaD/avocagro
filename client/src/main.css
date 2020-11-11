@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'typo';
+    src: url('./fonts/Typo_Round_Bold_Demo.otf');
+    src: url('./fonts/Typo_Round_Light_Demo.otf');
+    src: url('./fonts/Typo_Round_Regular_Demo.otf');
+    src: url('./fonts/Typo_Round_Italic_Demo.otf');
+    src: url('./fonts/Typo_Round_Light_Italic_Demo.otf');
+    /* src: url('fonts/on-air-inline-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/on-air-inline-webfont.woff') format('woff'),
+         url('fonts/on-air-inline-webfont.ttf') format('truetype'),
+         url('fonts/on-air-inline-webfont.svg#On-AirInline') format('svg'); */
+    font-weight: normal;
+    font-style: normal;
+}

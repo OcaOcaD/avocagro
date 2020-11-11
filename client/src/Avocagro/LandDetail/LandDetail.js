@@ -16,7 +16,7 @@ const LandDetail = (props) => {
             <h2> Características generales de la UGA </h2>
             <div className="infoGroup">
                 <h3>Fragilidad Ambiental</h3>
-                <p>{props.f_description}</p>
+                <p>[{props.fragilidad}] {props.d_fragilidad}</p>
             </div>
             <div className="infoGroup">
                 <h3> Uso Compatible </h3>

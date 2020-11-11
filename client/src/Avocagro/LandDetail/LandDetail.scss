@@ -1,8 +1,19 @@
+@import '../../variables';
 $green: #8ACC2D;
 $blue: #21293A;
 $red:#CF4D7D;
 $cyan: #15C7BA;
 $orange: #C76A15;
+@font-face {
+    font-family: typo;
+    src: url("../../fonts/Typo_Round_Regular_Demo.otf") format("opentype");
+}
+
+@font-face {
+    font-family: typo;
+    font-weight: bold;
+    src: url("../../fonts/Typo_Round_Bold_Demo.otf") format("opentype");
+}
 .landDetail{
     display: flex;
     flex-direction: column;
@@ -23,15 +34,18 @@ $orange: #C76A15;
     background-color: $blue;
     border-radius: 20px;
     h1{
+        width: 95%;
         margin: 0;
         color: $green;
         font-weight: bold;
         align-self: flex-start;
-        padding: 1em 1em 0 1em;
+        padding: 1em 0;
         font-size: clamp(30px, 40px, 42px ); 
+        line-height: 1em;
     }
     .uga_text{
         font-size: clamp(30px, 40px, 42px );
+        line-height: 1em;
         color: white;
         text-decoration: underline;
     }
@@ -42,15 +56,28 @@ $orange: #C76A15;
         height: 500px;
         max-height: 40vh;
     }
+    h2{
+        // align-self: flex-start;
+        font-size: clamp(15px, 17px, 19px );
+        line-height: 1em;
+        color: $red;
+        padding: 1em 0;
+        width: 90%;
+    }
     .infoGroup{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 95%;
+        width: 90%;
         h3{
-            align-self: left;
+            align-self: flex-start;
             font-size: clamp(13px, 14px, 16px );
+            line-height: 1em;
             color: $green;
+        }
+        p{
+            align-self: flex-start;
+            color: white;   
         }
     }
 }
