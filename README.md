@@ -9,6 +9,6 @@ La carpeta de drive contiene:
 - Avance del Mockup de la aplicación
 - Costos de desarrollo del proyecto
 
-Ademáa en éste reporsitorio está el avance del prototipo de Avocagro
+Además en éste reporsitorio está el avance del prototipo de Avocagro
 
 
