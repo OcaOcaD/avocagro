@@ -71,7 +71,7 @@ $orange: #C76A15;
         width: 90%;
         h3{
             align-self: flex-start;
-            font-size: clamp(13px, 14px, 16px );
+            font-size: 110%;
             line-height: 1em;
             color: $green;
         }
@@ -90,25 +90,39 @@ $orange: #C76A15;
     margin-bottom: 10px;
     button{
         background-color: $green;
-        color: white;
+        color: #21293A;
+        font-weight: bold;
+        letter-spacing: 1px;
         max-width: 45%;
-        width: 45%;
+        width: 240px;
         height: 30px;
-        font-size: 10px;
+        font-size: 12px;
         border-radius: 15px;
     }
 }
 
 .criteriosContainer{
     display: flex;
-        flex-direction: column;
-        align-items: center;
+    flex-direction: column;
+    align-items: center;
     color: white;
-    width: 90%;
-    h3{
-        color: $green
-    }
-    ul{
-        max-width: 95%;
+    .info{
+        display: flex;
+        flex-direction: row;
+        color: white;
+        width: 90%;
+        justify-content: space-evenly;
+
+        .ag, .fo{
+            width: 45%;
+        }
+
+        h3{
+            font-size: 110%;
+            color: $green
+        }
+        ul{
+            max-width: 95%;
+        }
     }
 }

@@ -50,29 +50,31 @@ const LandDetail = (props) => {
                  : 
                  <div className="criteriosContainer">
                     <h2> Criterios ambientales de la UGA </h2>
-                    <div className="ag">
-                        <h3>Criterios Agricultura</h3>
-                        <ul>
-                        {
-                        ( props.detail.ugas_info[props.detail.info].code !== "Desconocido" ) ? 
-                            props.detail.ugas_info[props.detail.info].criterios_ag.map( (c, index) => (
-                            <li key={index}> {props.detail.criterios_ag[c]} </li>
-                            ) )
-                        : null
-                        }
-                        </ul>
-                    </div>
-                    <div className="fo">
-                        <h3>Criterios Forestales</h3>
-                        <ul>
-                        {
-                        ( props.detail.ugas_info[props.detail.info].code !== "Desconocido" ) ? 
-                            props.detail.ugas_info[props.detail.info].criterios_fo.map( (c, index) => (
-                            <li key={index}> {props.detail.criterios_fo[c]} </li>
-                            ) )
-                        : null
-                        }
-                        </ul>
+                    <div className="info">
+                        <div className="ag">
+                            <h3>Criterios Agricultura</h3>
+                            <ul>
+                            {
+                            ( props.detail.ugas_info[props.detail.info].code !== "Desconocido" ) ? 
+                                props.detail.ugas_info[props.detail.info].criterios_ag.map( (c, index) => (
+                                <li key={index}> {props.detail.criterios_ag[c]} </li>
+                                ) )
+                            : null
+                            }
+                            </ul>
+                        </div>
+                        <div className="fo">
+                            <h3>Criterios Forestales</h3>
+                            <ul>
+                            {
+                            ( props.detail.ugas_info[props.detail.info].code !== "Desconocido" ) ? 
+                                props.detail.ugas_info[props.detail.info].criterios_fo.map( (c, index) => (
+                                <li key={index}> {props.detail.criterios_fo[c]} </li>
+                                ) )
+                            : null
+                            }
+                            </ul>
+                        </div>
                     </div>
                  </div>
                 
