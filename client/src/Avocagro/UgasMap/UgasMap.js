@@ -7,7 +7,7 @@ const UgasMap = () => {
       poligonos: [],
       markerPosition: {lat: 19.702747416624746, lng: -103.45999999999998},
       coord: null,
-      inside: "nope",
+      inside: "Desconocida",
       test: "",
       dots: [],
       info: 3,
@@ -106,7 +106,8 @@ const UgasMap = () => {
         "Incentivar programas de sanidad forestal en zonas degradadas o con presencia de plagas y enfermedades",
         "Promover establecimiento de reverva forestal",
         "Seguir criterios de manejo del área natural protegida",
-      ]
+      ],
+      show: "caracteristicas"
   })
 			
   // console.log("UGAS___________", UGAS_INFO)
@@ -152,6 +153,7 @@ const UgasMap = () => {
               style={{position: "relative", width: "80%", height: "700px", maxHeight: "60vh", background: "red"}} >
               <MapItself _onClick={_onClick} markerPosition={values.markerPosition} markerDragged={markerDragged}></MapItself>
             </div>
+            
               <h3>Información de UGA</h3>
               <strong>Fragilidad ecológica</strong>
               <p>{ JSON.stringify(values.ugas_info[values.info].d_fragilidad)}</p>
